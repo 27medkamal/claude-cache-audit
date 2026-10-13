@@ -1,0 +1,21 @@
+#!/bin/bash
+# qrun: run a long command quietly. The full log goes to a file; only the outcome is printed.
+# Usage: qrun [-l LOG] -- <command...>
+# Meant for long test suites, builds and polls, so no agent has to read their output or wait on them.
+log=""
+[ "$1" = "-l" ] && { log=$2; shift 2; }
+[ "$1" = "--" ] && shift
+log=${log:-${TMPDIR:-/tmp}/qrun-$(date +%Y%m%d-%H%M%S)-$$.log}
+start=$(date +%s)
+"$@" >"$log" 2>&1
+rc=$?
+secs=$(( $(date +%s) - start ))
+echo "exit=$rc time=${secs}s log=$log lines=$(wc -l <"$log" | tr -d ' ')"
+if [ $rc -ne 0 ]; then
+  # Common failure markers first, capped, then the end of the log.
+  grep -n -E 'FAIL|FAILED|panicked|error(\[|:)|Error:|not ok|AssertionError|Traceback' "$log" | head -40
+  echo "--- tail ---"; tail -15 "$log"
+else
+  tail -3 "$log"
+fi
+exit $rc

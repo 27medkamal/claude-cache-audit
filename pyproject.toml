@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "claude-cache-audit"
+version = "0.1.0"
+description = "Audit Claude Code's prompt-cache usage from local transcripts: subagents, cache rebuilds by cause, idle compactions."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Ahmed Kamal" }]
+keywords = ["claude", "claude-code", "prompt-caching", "cost", "audit"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development",
+  "Topic :: Utilities",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/27medkamal/claude-cache-audit"
+Repository = "https://github.com/27medkamal/claude-cache-audit"
+Issues = "https://github.com/27medkamal/claude-cache-audit/issues"
+
+[project.scripts]
+claude-cache-audit = "claude_cache_audit.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/claude_cache_audit"]
