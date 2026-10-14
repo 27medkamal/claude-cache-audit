@@ -236,7 +236,7 @@ Total:         $2,449  (API-equivalent prices as of 2026-10-13; not your bill)
 
 ## Acting on it
 
-[`examples/`](examples/) has four subagent definitions, delegation rules for `CLAUDE.md` and a wrapper for long
+[`examples/`](https://github.com/27medkamal/claude-cache-audit/tree/main/examples) has four subagent definitions, delegation rules for `CLAUDE.md` and a wrapper for long
 commands: one way to keep subagents small and to stop agents from waiting inside a big context.
 
 ## Pricing
