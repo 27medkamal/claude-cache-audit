@@ -13,7 +13,7 @@ import datetime as dt
 from . import __version__, pricing
 
 SCHEMA_VERSION = 1
-POST_URL = "https://27medkamal.com/claude-code-usage/"
+POST_URL = "https://27medkamal.com/blog/claude-code-usage/"
 
 # A request counts as a rebuild under the post's rule when it wrote at least this much...
 POST_RULE_MIN_CW = 20_000

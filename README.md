@@ -6,7 +6,7 @@ subagents (including how much comes from agents whose context grew past 500K), c
 idle compactions, and whether a 1-hour cache for subagents would pay off.
 It runs locally, reads only your own transcript files, and makes no network calls.
 
-The numbers and definitions follow the method of the write-up at <https://27medkamal.com/claude-code-usage/>.
+The numbers and definitions follow the method of the write-up at <https://27medkamal.com/blog/claude-code-usage/>.
 
 ## Install and run
 
@@ -218,18 +218,18 @@ Total:         $2,449  (API-equivalent prices as of 2026-10-13; not your bill)
 
 9. Try this
   - Subagent rebuilds after tool waits are 9% of usage: run long commands outside subagents.
-    https://27medkamal.com/claude-code-usage/
+    https://27medkamal.com/blog/claude-code-usage/
   - Teammate rebuilds are 77% of their cache writes, above the 38.5% break-even: set
     subagentPromptCacheTtl, or experimental.cacheTtl: 1h in that agent's frontmatter.
-    https://27medkamal.com/claude-code-usage/
+    https://27medkamal.com/blog/claude-code-usage/
   - Fork rebuilds are 72% of their cache writes, above the 38.5% break-even: set
     subagentPromptCacheTtl, or experimental.cacheTtl: 1h in that agent's frontmatter.
-    https://27medkamal.com/claude-code-usage/
+    https://27medkamal.com/blog/claude-code-usage/
   - Contexts over 400K are 58% of usage: prefer smaller, disposable contexts, and set
     autoCompactWindow for subagents (Claude Code 2.1.296+).
-    https://27medkamal.com/claude-code-usage/
+    https://27medkamal.com/blog/claude-code-usage/
   - 60% of subagent usage came from agents whose context passed 500K: give each agent one task,
-    then start a fresh one. https://27medkamal.com/claude-code-usage/
+    then start a fresh one. https://27medkamal.com/blog/claude-code-usage/
 
   * malformed lines skipped: 0
 ```
